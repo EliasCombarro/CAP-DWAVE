@@ -2,7 +2,7 @@ import numpy as np
 import dimod
 
 # Especificar los coeficientes del problema que queremos resolver es muy sencillo
-# Empezaremos con un caso muy sencillo
+# Empezaremos con un caso muy simple
 
 J = {(0,1):1}
 
