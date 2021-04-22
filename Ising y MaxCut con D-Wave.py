@@ -36,12 +36,12 @@ print()
 
 # Y, por supuesto, con el ordenador cuántico de D-Wave 
 
-
 from dwave.system.samplers import DWaveSampler
 from dwave.system.composites import EmbeddingComposite
 sampler = EmbeddingComposite(DWaveSampler())
+sampler_name = sampler.properties['child_properties']['chip_id']
 response = sampler.sample(model, num_reads=5000)
-print("La solucion con el quantum annealer de D-Wave es")
+print("La solucion con el quantum annealer de D-Wave llamado",sampler_name,"es")
 print(response)
 print()
 
@@ -81,9 +81,10 @@ print()
 # Finalmente, lo resolvemos nuevamente con el *quantum annealer*
 
 
-sampler = EmbeddingComposite(DWaveSampler())
+sampler = EmbeddingComposite(DWaveSampler(solver='Advantage_system1.1'))
+sampler_name = sampler.properties['child_properties']['chip_id']
 response = sampler.sample(model, num_reads=5000)
-print("La solucion con el quantum annealer de D-Wave es")
+print("La solucion con el quantum annealer de D-Wave llamado",sampler_name,"es")
 print(response)
 print()
 
