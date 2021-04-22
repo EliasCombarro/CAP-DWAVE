@@ -78,10 +78,19 @@ print(response)
 print()
 
 
-# Finalmente, lo resolvemos nuevamente con el *quantum annealer*
+# Finalmente, lo resolvemos nuevamente con el *quantum annealer* seleccionando explícitamente el ordenador a utilizar
 
 
 sampler = EmbeddingComposite(DWaveSampler(solver='Advantage_system1.1'))
+sampler_name = sampler.properties['child_properties']['chip_id']
+response = sampler.sample(model, num_reads=5000)
+print("La solucion con el quantum annealer de D-Wave llamado",sampler_name,"es")
+print(response)
+print()
+
+# Lo mismo, pero con el otro *annealer*
+
+sampler = EmbeddingComposite(DWaveSampler(solver='DW_2000Q_6'))
 sampler_name = sampler.properties['child_properties']['chip_id']
 response = sampler.sample(model, num_reads=5000)
 print("La solucion con el quantum annealer de D-Wave llamado",sampler_name,"es")
