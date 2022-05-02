@@ -78,15 +78,3 @@ response = sampler.sample(model, num_reads=10)
 print("La solucion con simulated annealing es")
 print(response)
 print()
-
-
-# Finalmente, lo resolvemos nuevamente con el *quantum annealer*
-
-
-sampler = EmbeddingComposite(DWaveSampler(solver='Advantage_system1.1'))
-sampler_name = sampler.properties['child_properties']['chip_id']
-print("Estamos usando el ordenador de D-Wave llamado", sampler_name)
-response = sampler.sample(model, num_reads=100)
-print("La solucion con el quantum annealer de D-Wave es")
-print(response)
-print()
