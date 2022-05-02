@@ -90,6 +90,3 @@ response = sampler.sample(model, num_reads=100)
 print("La solucion con el quantum annealer de D-Wave es")
 print(response)
 print()
-
-dwave.inspector.show(response)
-
